@@ -1,7 +1,9 @@
+import MainLayout from './components/layout/MainLayout';
+
 function App() {
   return (
     <div>
-      <h2>Mechanical Keyboard</h2>
+      <MainLayout />
     </div>
   );
 }
