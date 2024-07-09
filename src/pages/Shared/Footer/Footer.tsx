@@ -42,35 +42,35 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 class='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
+              <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
                 Campus
               </h2>
-              <ul class='text-gray-500 dark:text-gray-400 font-medium'>
-                <li class='mb-4'>
+              <ul className='text-gray-500 dark:text-gray-400 font-medium'>
+                <li className='mb-4'>
                   <Link
                     to=''
-                    class='hover:underline'>
+                    className='hover:underline'>
                     News and Events
                   </Link>
                 </li>
-                <li class='mb-4'>
+                <li className='mb-4'>
                   <Link
                     to=''
-                    class='hover:underline'>
+                    className='hover:underline'>
                     Medical
                   </Link>
                 </li>
-                <li class='mb-4'>
+                <li className='mb-4'>
                   <Link
                     to=''
-                    class='hover:underline'>
+                    className='hover:underline'>
                     Library
                   </Link>
                 </li>
-                <li class='mb-4'>
+                <li className='mb-4'>
                   <Link
                     to=''
-                    class='hover:underline'>
+                    className='hover:underline'>
                     Muktijuddho corner
                   </Link>
                 </li>
