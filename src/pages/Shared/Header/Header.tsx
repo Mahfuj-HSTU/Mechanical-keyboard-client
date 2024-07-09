@@ -11,16 +11,16 @@ const Header = () => {
         <Link to='/'>Home</Link>{' '}
       </li>
       <li className='font-semibold'>
-        <Link to='/'>Products</Link>{' '}
+        <Link to='/products'>Products</Link>{' '}
       </li>
       <li className='font-semibold'>
-        <Link to='/'>About Us</Link>{' '}
+        <Link to='/about'>About Us</Link>{' '}
       </li>
       <li className='font-semibold'>
-        <Link to='/'>Contact Us</Link>{' '}
+        <Link to='/contact'>Contact Us</Link>{' '}
       </li>
       <li className='font-semibold'>
-        <Link to='/'>Product Management</Link>{' '}
+        <Link to='/dashboard'>Product Management</Link>{' '}
       </li>
     </>
   );
@@ -38,13 +38,15 @@ const Header = () => {
       </div>
       <div className='navbar h-16 mt-12 bg-gradient-to-r from-slate-300 to-green-300 mx-auto flex justify-between items-center px-4 z-20'>
         <div className='navbar-start'>
-          <div className='font-bold'>
+          <Link
+            to='/'
+            className='font-bold'>
             <img
               className='h-[60px]'
               src={logo}
               alt='logo'
             />
-          </div>
+          </Link>
         </div>
         <div className='navbar-center flex-grow flex justify-center'>
           <div className='hidden lg:flex'>
