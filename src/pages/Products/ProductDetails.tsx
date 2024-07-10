@@ -1,41 +1,42 @@
 import { useParams } from 'react-router-dom';
 import { useGetProductDetailsQuery } from '../../redux/redux/api/productsApi';
 import Loading from '../Shared/Loading/Loading';
+import StarRating from './StarRating';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { data: product, isLoading, isError } = useGetProductDetailsQuery(id);
+
   if (isLoading) {
-    <Loading />;
+    return <Loading />;
   }
-  if (isError) {
+
+  if (isError || !product) {
     return <h1>Error fetching product details</h1>;
   }
 
-  console.log(product);
-
   return (
-    <div className='p-6'>
-      <h1 className='text-3xl font-bold mb-4'>{product?.title}</h1>
+    <div className='mx-10 p-6'>
+      <h1 className='text-4xl font-bold mb-4'>{product.title}</h1>
       <img
         src={product.image}
         alt={product.title}
-        className='w-full h-64 object-cover mb-4'
+        className='w-full h-[450px] mb-4'
       />
-      <p>
+      <p className='text-xl'>
         <strong>Brand:</strong> {product.brand}
       </p>
-      <p>
+      <p className='text-xl'>
         <strong>Available Quantity:</strong> {product.availableQuantity}
       </p>
-      <p>
+      <p className='text-xl'>
         <strong>Price:</strong> ${product.price}
       </p>
-      <p>
+      <p className='text-xl'>
         <strong>Description:</strong> {product.description}
       </p>
-      <p>
-        <strong>Rating:</strong> {product.rating} ★
+      <p className='text-xl flex items-center gap-3'>
+        <strong>Rating:</strong> <StarRating rating={product.rating} />
       </p>
     </div>
   );

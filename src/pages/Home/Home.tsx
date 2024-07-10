@@ -1,8 +1,10 @@
 import Banner from './Banner/Banner';
 import FeaturedBrands from './Brands/FeaturedBrands';
+import CustomizableOptions from './CustomizableOptions/CustomizableOptions';
 import FeaturedProducts from './FeaturedProducts/FeaturedProducts';
 import Reviews from './Reviews/Reviews';
 import Services from './Services/Services';
+import WhyMechanicalKeyboards from './WhyMechanicalKeyboard/WhyMechanicalKeyboard';
 
 const Home = () => {
   return (
@@ -13,6 +15,8 @@ const Home = () => {
         <FeaturedProducts />
         <FeaturedBrands />
         <Reviews />
+        <WhyMechanicalKeyboards />
+        <CustomizableOptions />
       </div>
     </div>
   );

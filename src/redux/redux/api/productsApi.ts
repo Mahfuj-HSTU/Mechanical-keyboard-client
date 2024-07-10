@@ -13,7 +13,7 @@ export const productsApi = createApi({
         method: 'GET',
       }),
     }),
-    getProductDetails: builder.query<TProduct[], void>({
+    getProductDetails: builder.query({
       query: (id) => ({
         url: `/products/${id}`,
         method: 'GET',
