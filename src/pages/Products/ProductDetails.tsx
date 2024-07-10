@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useGetProductDetailsQuery } from '../../redux/redux/api/productsApi';
 import Loading from '../Shared/Loading/Loading';
 import StarRating from './StarRating';
+import { Button } from 'antd';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className='mx-10 p-6'>
+    <div className='m-10 p-6 shadow-xl shadow-slate-300'>
       <h1 className='text-4xl font-bold mb-4'>{product.title}</h1>
       <img
         src={product.image}
@@ -38,6 +39,7 @@ const ProductDetails = () => {
       <p className='text-xl flex items-center gap-3'>
         <strong>Rating:</strong> <StarRating rating={product.rating} />
       </p>
+      <button className='btn btn-info mt-9 text-xl'>Add to Cart</button>
     </div>
   );
 };

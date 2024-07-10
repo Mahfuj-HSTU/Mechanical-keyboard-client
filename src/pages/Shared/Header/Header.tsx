@@ -20,7 +20,7 @@ const Header = () => {
         <Link to='/contact'>Contact Us</Link>{' '}
       </li>
       <li className='font-semibold'>
-        <Link to='/dashboard'>Product Management</Link>{' '}
+        <Link to='/product-management/dashboard'>Product Management</Link>{' '}
       </li>
     </>
   );

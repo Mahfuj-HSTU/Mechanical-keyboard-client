@@ -6,7 +6,7 @@ const Products = () => {
   if (isError) {
     return <p>Error fetching products</p>;
   }
-  console.log(products);
+  // console.log(products);
   return (
     <div className='max-w-screen-xl mx-auto mb-9'>
       <h2 className='text-start px-4 py-6 text-blue-900 text-4xl font-semibold mb-5 rounded-xl mx-3'>

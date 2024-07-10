@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: 'dashboard',
+        path: 'product-management/dashboard',
         element: <Dashboard />,
       },
     ],
