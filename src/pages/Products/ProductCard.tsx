@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
+import { TProduct } from '../../Utils/Utils';
 
-const ProductCard = ({ product, isLoading }) => {
+const ProductCard = ({
+  product,
+  isLoading,
+}: {
+  product: TProduct;
+  isLoading: boolean;
+}) => {
   const { image, title, brand, price, availableQuantity, rating, _id } =
     product;
   return (

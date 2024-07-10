@@ -1,6 +1,7 @@
 import Banner from './Banner/Banner';
 import FeaturedBrands from './Brands/FeaturedBrands';
 import FeaturedProducts from './FeaturedProducts/FeaturedProducts';
+import Reviews from './Reviews/Reviews';
 import Services from './Services/Services';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
         <Services />
         <FeaturedProducts />
         <FeaturedBrands />
+        <Reviews />
       </div>
     </div>
   );

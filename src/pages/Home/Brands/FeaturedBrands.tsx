@@ -1,4 +1,3 @@
-import React from 'react';
 import logitechImg from '../../../assets/images/logitech.png';
 import duckyImg from '../../../assets/images/ducky.png';
 import hyperXImg from '../../../assets/images/HyperX.png';
