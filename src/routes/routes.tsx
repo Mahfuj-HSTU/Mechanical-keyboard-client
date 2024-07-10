@@ -5,6 +5,7 @@ import About from '../pages/About/About';
 import Contact from '../pages/Contact/Contact';
 import Products from '../pages/Products/Products';
 import Dashboard from '../pages/Dashboard/Dashboard';
+import ProductDetails from '../pages/Products/ProductDetails';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: 'products',
         element: <Products />,
+      },
+      {
+        path: 'product/:id',
+        element: <ProductDetails />,
       },
       {
         path: 'about',

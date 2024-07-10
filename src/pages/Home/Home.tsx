@@ -1,4 +1,6 @@
 import Banner from './Banner/Banner';
+import FeaturedBrands from './Brands/FeaturedBrands';
+import FeaturedProducts from './FeaturedProducts/FeaturedProducts';
 import Services from './Services/Services';
 
 const Home = () => {
@@ -7,6 +9,8 @@ const Home = () => {
       <Banner />
       <div className='max-w-screen-xl mx-auto'>
         <Services />
+        <FeaturedProducts />
+        <FeaturedBrands />
       </div>
     </div>
   );

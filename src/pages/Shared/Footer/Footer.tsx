@@ -5,7 +5,7 @@ const Footer = () => {
     <div className='bg-slate-900 text-white text-start py-10'>
       <footer className='bg-white dark:bg-gray-900'>
         <div className='mx-auto w-full max-w-screen-xl'>
-          <div className='grid grid-cols-2 gap-8 px-2 py-1 lg:py-1 md:grid-cols-6'>
+          <div className='grid grid-cols-2 gap-8 px-2 py-1 lg:py-1 md:grid-cols-3'>
             <div>
               <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
                 Useful Pages
@@ -15,63 +15,49 @@ const Footer = () => {
                   <Link
                     to=''
                     className=' hover:underline'>
-                    About HSTU
+                    Home
                   </Link>
                 </li>
                 <li className='mb-4'>
                   <Link
                     to=''
                     className='hover:underline'>
-                    Exam Results
+                    About
                   </Link>
                 </li>
                 <li className='mb-4'>
                   <Link
                     to=''
                     className='hover:underline'>
-                    HSTU Wikipedia
-                  </Link>
-                </li>
-                <li className='mb-4'>
-                  <Link
-                    to=''
-                    className='hover:underline'>
-                    Admin Bodies
+                    Products
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
               <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
-                Campus
+                Social Media
               </h2>
               <ul className='text-gray-500 dark:text-gray-400 font-medium'>
                 <li className='mb-4'>
                   <Link
-                    to=''
+                    to='https://www.facebook.com/mahfuj.rahman.18007'
                     className='hover:underline'>
-                    News and Events
+                    Facebook
                   </Link>
                 </li>
                 <li className='mb-4'>
                   <Link
-                    to=''
+                    to='https://www.instagram.com/mahfuj.shb/?fbclid=IwZXh0bgNhZW0CMTAAAR2FCDTNoNDCyGgRoj46_OH1CMpz5aw7u_brlItFNboQY9IM-Kb36IU7ab8_aem_V1vD2MAvB5LxOnqlpkw2Hg'
                     className='hover:underline'>
-                    Medical
+                    Instagram
                   </Link>
                 </li>
                 <li className='mb-4'>
                   <Link
-                    to=''
+                    to='https://www.linkedin.com/in/r-mahfuj/'
                     className='hover:underline'>
-                    Library
-                  </Link>
-                </li>
-                <li className='mb-4'>
-                  <Link
-                    to=''
-                    className='hover:underline'>
-                    Muktijuddho corner
+                    LinkedIn
                   </Link>
                 </li>
               </ul>
@@ -100,7 +86,7 @@ const Footer = () => {
                   <Link
                     to=''
                     className='hover:underline'>
-                    Phone: +880-531-61355
+                    Phone: +8801793949008
                   </Link>
                 </li>
               </ul>
