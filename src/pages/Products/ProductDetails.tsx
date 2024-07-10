@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { useGetProductDetailsQuery } from '../../redux/redux/api/productsApi';
 import Loading from '../Shared/Loading/Loading';
 import StarRating from './StarRating';
-import { Button } from 'antd';
 
 const ProductDetails = () => {
   const { id } = useParams();

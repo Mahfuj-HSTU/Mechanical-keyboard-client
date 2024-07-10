@@ -1,20 +1,31 @@
 import { MdOutlineDeleteOutline } from 'react-icons/md';
-import { useGetAllProductsQuery } from '../../redux/redux/api/productsApi';
+import {
+  useDeleteProductMutation,
+  useGetAllProductsQuery,
+} from '../../redux/redux/api/productsApi';
 import AddProduct from './AddProduct';
 import { BiEdit } from 'react-icons/bi';
+import Loading from '../Shared/Loading/Loading';
+import { toast } from 'sonner';
 
 const Dashboard = () => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
+  const [deleteKeyboard, { isSuccess }] = useDeleteProductMutation();
+
+  if (isLoading) {
+    <Loading />;
+  }
   if (isError) {
     return <p>Error fetching products</p>;
   }
+  if (isSuccess) {
+    toast.success('Product deleted successfully');
+  }
 
   const handleDelete = (usr) => {
-    const agree = window.confirm(
-      `Are you sure? you want to release "${usr?.name}" from hall.`
-    );
+    const agree = window.confirm(`Are you sure? you want to delete the item?`);
     if (agree) {
-      console.log('check');
+      deleteKeyboard(usr);
     }
   };
 
@@ -74,7 +85,7 @@ const Dashboard = () => {
           ))}
         </tbody>
       </table>
-      {/* <AddProduct /> */}
+      <AddProduct />
     </div>
   );
 };
