@@ -7,6 +7,7 @@ import Products from '../pages/Products/Products';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import ProductDetails from '../pages/Products/ProductDetails';
 import Cart from '../pages/cart/Cart';
+import CheckOut from '../pages/CheckOut/CheckOut';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: 'cart',
         element: <Cart />,
+      },
+      {
+        path: 'checkout',
+        element: <CheckOut />,
       },
     ],
   },

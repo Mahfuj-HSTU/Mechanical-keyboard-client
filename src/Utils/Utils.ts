@@ -38,6 +38,8 @@ export type TProductFiltersProps = {
 export type TCart = {
   _id: string;
   quantity: number;
+  price: number;
+  title: string;
 };
 
 export type TInitialSate = {
