@@ -8,7 +8,7 @@ import { BiEdit } from 'react-icons/bi';
 import { toast } from 'sonner';
 import { TProduct } from '../../Utils/Utils';
 import UpdateProduct from './UpdateProduct';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Dashboard = () => {
   const [selected, setSelected] = useState<TProduct | null>(null);

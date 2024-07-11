@@ -34,3 +34,12 @@ export type TProductFiltersProps = {
   sortOrder: 'asc' | 'desc';
   handlePriceChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
+
+export type TCart = {
+  _id: string;
+  quantity: number;
+};
+
+export type TInitialSate = {
+  cart: TCart[];
+};
