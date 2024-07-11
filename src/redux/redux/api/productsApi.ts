@@ -25,10 +25,10 @@ export const productsApi = createApi({
     }),
 
     addProduct: builder.mutation({
-      query: (data) => ({
+      query: (product) => ({
         url: '/products',
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(product),
         headers: {
           'content-type': 'application/json',
         },
@@ -37,17 +37,21 @@ export const productsApi = createApi({
     }),
 
     deleteProduct: builder.mutation({
-      query: (usr) => ({
-        url: `/products/${usr._id}`,
+      query: (product) => ({
+        url: `/products/${product._id}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['products'],
     }),
 
     updateProduct: builder.mutation({
-      query: (usr) => ({
-        url: `/products/${usr._id}`,
+      query: (product) => ({
+        url: `/products/${product.id}`,
         method: 'PUT',
+        body: JSON.stringify(product.data),
+        headers: {
+          'content-type': 'application/json',
+        },
       }),
       invalidatesTags: ['products'],
     }),

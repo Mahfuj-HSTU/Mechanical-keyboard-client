@@ -1,33 +1,36 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import { useAddProductMutation } from '../../redux/redux/api/productsApi';
 import { TProduct } from '../../Utils/Utils';
+import { useUpdateProductMutation } from '../../redux/redux/api/productsApi';
 
-const AddProduct = () => {
-  const [addProduct, { isLoading, isSuccess, isError }] =
-    useAddProductMutation();
+const UpdateProduct = ({ selected }: { selected: TProduct }) => {
   const { register, handleSubmit, reset } = useForm<TProduct>();
+  const [updateProduct, { isError, isSuccess }] = useUpdateProductMutation();
+  const { title, brand, price, availableQuantity, rating, description, image } =
+    selected;
 
   useEffect(() => {
-    if (isLoading) {
-      toast.loading('Posting...', { id: 'addProduct' });
-    }
     if (isSuccess) {
-      toast.success('Successfully added a new keyboard', { id: 'addProduct' });
+      toast.success('Keyboard updated successfully', { id: 'updateProduct' });
     }
     if (isError) {
-      toast.error('Failed to add a new keyboard', { id: 'addProduct' });
+      toast.error('Failed to update the keyboard', { id: 'updateProduct' });
     }
-  }, [isLoading, isSuccess, isError]);
+  }, [isSuccess, isError]);
 
   const onSubmit = async (data: TProduct) => {
-    const checkbox = document.getElementById('add-modal') as HTMLInputElement;
+    const productData = {
+      data,
+      id: selected._id,
+    };
+    const checkbox = document.getElementById(
+      'update-modal'
+    ) as HTMLInputElement;
     if (checkbox) {
       checkbox.checked = false;
     }
-    addProduct(data);
-    // console.log(data);
+    await updateProduct(productData);
     reset();
   };
 
@@ -35,18 +38,18 @@ const AddProduct = () => {
     <div>
       <input
         type='checkbox'
-        id='add-modal'
-        className='modal-toggle '
+        id='update-modal'
+        className='modal-toggle'
       />
       <div className='modal'>
         <div className='modal-box relative max-w-xl'>
           <label
-            htmlFor='add-modal'
+            htmlFor='update-modal'
             className='btn btn-sm btn-circle absolute right-2 top-2'>
             ✕
           </label>
-          <h1 className='text-4xl font-bold py-2 text-blue-800'>
-            Add Keyboard
+          <h1 className='text-2xl font-bold py-2 text-blue-800'>
+            Update The {title}
           </h1>
           <div className='card w-full '>
             <div className='card-body text-start'>
@@ -56,10 +59,10 @@ const AddProduct = () => {
                 <label className='font-semibold pl-1'>Keyboard Name</label>{' '}
                 <br />
                 <input
+                  defaultValue={title}
                   type='text'
-                  {...register('title', { required: true })}
+                  {...register('title')}
                   placeholder='keyboard name'
-                  required
                   className='input input-bordered w-full max-w-md mb-3 mt-1'
                 />
                 <br />
@@ -68,42 +71,43 @@ const AddProduct = () => {
                 </label>{' '}
                 <br />
                 <input
+                  defaultValue={brand}
                   type='text'
-                  {...register('brand', { required: true })}
+                  {...register('brand')}
                   placeholder='example: Logitech'
-                  required
                   className='input input-bordered w-full max-w-md mb-3 mt-1'
                 />
                 <br />
                 <label className='font-semibold pl-1'>Quantity</label> <br />
                 <input
+                  defaultValue={availableQuantity}
                   type='number'
-                  {...register('availableQuantity', { required: true })}
+                  {...register('availableQuantity')}
                   placeholder='keyboard quantity'
-                  required
                   className='input input-bordered w-full max-w-md mb-3 mt-1'
                 />
                 <br />
                 <label className='font-semibold pl-1'>Price</label> <br />
                 <input
+                  defaultValue={price}
                   type='number'
-                  {...register('price', { required: true })}
+                  {...register('price')}
                   placeholder='example - 100$'
-                  required
                   className='input input-bordered w-full max-w-md mb-7 mt-1'
                 />
                 <br />
                 <label className='font-semibold pl-1'>Rating</label> <br />
                 <input
-                  type='number'
-                  {...register('rating', { required: true })}
+                  defaultValue={rating}
+                  type='float'
+                  {...register('rating')}
                   placeholder='keyboard rating'
-                  required
                   className='input input-bordered w-full max-w-md mb-7 mt-1'
                 />
                 <br />
                 <label className='font-semibold pl-1'>Description</label> <br />
                 <textarea
+                  defaultValue={description}
                   {...register('description')}
                   placeholder='keyboard description'
                   className='input input-bordered w-full max-w-md mb-7 mt-1'
@@ -111,13 +115,14 @@ const AddProduct = () => {
                 <br />
                 <label className='font-semibold pl-1'>Image</label> <br />
                 <input
+                  defaultValue={image}
                   type='text'
                   {...register('image')}
                   placeholder='Give image link'
                   className='input input-bordered w-full max-w-md mb-7 mt-1'
                 />
                 <label
-                  htmlFor='add-modal'
+                  htmlFor='update-modal'
                   className='relative'>
                   <input
                     type='submit'
@@ -134,4 +139,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;

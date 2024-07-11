@@ -5,23 +5,28 @@ import {
 } from '../../redux/redux/api/productsApi';
 import AddProduct from './AddProduct';
 import { BiEdit } from 'react-icons/bi';
-import Loading from '../Shared/Loading/Loading';
 import { toast } from 'sonner';
 import { TProduct } from '../../Utils/Utils';
+import UpdateProduct from './UpdateProduct';
+import { useEffect, useState } from 'react';
 
 const Dashboard = () => {
+  const [selected, setSelected] = useState<TProduct | null>(null);
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
-  const [deleteKeyboard, { isSuccess }] = useDeleteProductMutation();
+  const [deleteKeyboard, { isSuccess: deleteSuccess }] =
+    useDeleteProductMutation();
 
-  if (isLoading) {
-    <Loading />;
-  }
-  if (isError) {
-    return <p>Error fetching products</p>;
-  }
-  if (isSuccess) {
-    toast.success('Product deleted successfully');
-  }
+  useEffect(() => {
+    if (isLoading) {
+      toast.loading('Deleting...');
+    }
+    if (deleteSuccess) {
+      toast.success('Product deleted successfully');
+    }
+    if (isError) {
+      toast.error('Failed to delete keyboard');
+    }
+  }, [isLoading, deleteSuccess, isError]);
 
   const handleDelete = (product: TProduct) => {
     const agree = window.confirm(`Are you sure? you want to delete the item?`);
@@ -77,15 +82,21 @@ const Dashboard = () => {
                   <MdOutlineDeleteOutline />
                 </button>
                 <button
-                  onClick={() => handleDelete(product)}
+                  onClick={() => setSelected(product)}
                   className='text-blue-600 text-2xl ml-7'>
-                  <BiEdit />
+                  <label
+                    htmlFor='update-modal'
+                    className='cursor-pointer'>
+                    {' '}
+                    <BiEdit />
+                  </label>
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {selected && <UpdateProduct selected={selected} />}
       <AddProduct />
     </div>
   );
