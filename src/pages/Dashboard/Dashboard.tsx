@@ -7,6 +7,7 @@ import AddProduct from './AddProduct';
 import { BiEdit } from 'react-icons/bi';
 import Loading from '../Shared/Loading/Loading';
 import { toast } from 'sonner';
+import { TProduct } from '../../Utils/Utils';
 
 const Dashboard = () => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
@@ -22,10 +23,10 @@ const Dashboard = () => {
     toast.success('Product deleted successfully');
   }
 
-  const handleDelete = (usr) => {
+  const handleDelete = (product: TProduct) => {
     const agree = window.confirm(`Are you sure? you want to delete the item?`);
     if (agree) {
-      deleteKeyboard(usr);
+      deleteKeyboard(product);
     }
   };
 

@@ -1,4 +1,6 @@
 export type TProduct = {
+  preventDefault(): unknown;
+  target?: any;
   _id: string;
   image?: string;
   title: string;

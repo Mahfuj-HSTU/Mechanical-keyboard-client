@@ -1,5 +1,6 @@
 import { toast } from 'sonner';
 import { useAddProductMutation } from '../../redux/redux/api/productsApi';
+import { TProduct } from '../../Utils/Utils';
 
 const AddProduct = () => {
   const [addProduct, { isLoading, isSuccess, isError }] =
@@ -15,9 +16,9 @@ const AddProduct = () => {
     toast.error('Failed to add a new keyboard ', { id: 'addProduct' });
   }
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: TProduct) => {
     event.preventDefault();
-    const form = event.target as HTMLFormElement;
+    const form = event.target;
     const title = form.title.value;
     const brand = form.brand.value;
     const availableQuantity = form.quantity.value;

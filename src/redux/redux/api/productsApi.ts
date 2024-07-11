@@ -27,7 +27,7 @@ export const productsApi = createApi({
     addProduct: builder.mutation({
       query: (data) => ({
         url: '/products',
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify(data),
         headers: {
           'content-type': 'application/json',
@@ -43,6 +43,14 @@ export const productsApi = createApi({
       }),
       invalidatesTags: ['products'],
     }),
+
+    updateProduct: builder.mutation({
+      query: (usr) => ({
+        url: `/products/${usr._id}`,
+        method: 'PUT',
+      }),
+      invalidatesTags: ['products'],
+    }),
   }),
 });
 
@@ -51,4 +59,5 @@ export const {
   useGetProductDetailsQuery,
   useAddProductMutation,
   useDeleteProductMutation,
+  useUpdateProductMutation,
 } = productsApi;
