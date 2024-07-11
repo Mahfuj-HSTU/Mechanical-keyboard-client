@@ -20,7 +20,7 @@ const cartSlice = createSlice({
           ...product,
           quantity: 1,
         });
-        toast.success('Product added to cart');
+        toast.success('Product is added to the cart');
       } else {
         if (selectedProduct.quantity! < product.availableQuantity) {
           selectedProduct.quantity! += 1;
@@ -40,6 +40,7 @@ const cartSlice = createSlice({
         };
         state.cart = state.cart.filter((item) => item._id !== product._id);
         state.cart.push(selectedProduct);
+        toast.success('Product is removed from cart');
       } else {
         state.cart = state.cart.filter(
           (product) => product._id !== product._id
@@ -50,5 +51,5 @@ const cartSlice = createSlice({
 });
 
 export const { addToCart, removeFromCart } = cartSlice.actions;
-
+export const selectCartItems = (state: any) => state.cart.cart;
 export default cartSlice.reducer;

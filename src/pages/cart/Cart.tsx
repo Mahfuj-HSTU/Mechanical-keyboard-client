@@ -17,9 +17,9 @@ const Cart = () => {
       });
       setTotalPrice(total);
     };
-
     calculateTotalPrice();
   }, [cart]);
+
   return (
     <div className='max-w-screen-xl mx-auto my-9'>
       {cart.length !== 0 ? (
@@ -50,7 +50,8 @@ const Cart = () => {
               <span>Grand Total:</span>
               <span>${totalPrice.toFixed(2)}</span>
             </div>
-            <div className='text-center mt-7'>
+            <div className='divider'></div>
+            <div className='text-center mt-4'>
               <Link
                 to='/checkout'
                 className='btn btn-primary font-semibold text-lg text-white'>
