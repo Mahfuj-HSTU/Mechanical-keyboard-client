@@ -40,7 +40,7 @@ const ProductCard = ({
               </div>
             )}
           </figure>
-          <div className='card-body p-4'>
+          <div className='card-body p-4 pb-7'>
             <h2 className='card-title text-xl font-semibold mb-2'>{title}</h2>
             <p className='text-gray-600 mb-1'>
               <span className='font-semibold'>Brand:</span> {brand}

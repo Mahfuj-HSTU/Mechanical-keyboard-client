@@ -1,6 +1,6 @@
 const WhyMechanicalKeyboards = () => {
   return (
-    <section className='py-9 shadow-xl shadow-slate-300 mb-9 rounded-xl'>
+    <div className='py-9 border-t border-gray-300 shadow-xl shadow-slate-300 mb-9 rounded-xl my-14'>
       <div className='container mx-auto'>
         <div className='max-w-6xl mx-auto text-center'>
           <h2 className='text-4xl font-bold text-gray-800 mb-8'>
@@ -90,7 +90,7 @@ const WhyMechanicalKeyboards = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

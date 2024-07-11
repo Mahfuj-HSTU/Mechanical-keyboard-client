@@ -35,7 +35,7 @@ const cardColors = [
 
 const Services = () => {
   return (
-    <div className='mt-7 mb-9 shadow-xl shadow-slate-300 p-7 rounded-lg'>
+    <div className='mt-7 border-t border-gray-300 mb-9 shadow-xl shadow-slate-300 p-7 rounded-lg'>
       <h2 className='text-center px-4 py-6  text-5xl rounded-xl mx-3 font-semibold mb-5'>
         Services we provide
       </h2>

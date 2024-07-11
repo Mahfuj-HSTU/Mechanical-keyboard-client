@@ -1,6 +1,6 @@
 const CustomizableOptions = () => {
   return (
-    <div className='py-10 shadow-xl shadow-slate-300 mb-9 rounded-xl'>
+    <div className='mt-14 py-10 shadow-xl border-t border-gray-300 shadow-slate-300 mb-9 rounded-xl'>
       <div className='container mx-auto px-4'>
         <div className='max-w-6xl mx-auto text-center'>
           <h2 className='text-4xl font-bold text-gray-800 mb-8'>

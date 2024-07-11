@@ -34,7 +34,7 @@ const FeaturedBrands = () => {
   ];
 
   return (
-    <div className='my-10'>
+    <div className='my-14 border-t border-gray-300 mb-9 shadow-xl shadow-slate-300 p-7'>
       <h1 className='text-4xl font-bold text-center mb-8 text-gray-800'>
         Featured Brands
       </h1>
