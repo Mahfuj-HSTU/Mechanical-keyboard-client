@@ -26,3 +26,10 @@ export type TReviewProps = {
     location: string;
   };
 };
+
+export type TProductFiltersProps = {
+  priceRange: string;
+  onSortChange: () => void;
+  sortOrder: 'asc' | 'desc';
+  handlePriceChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+};
