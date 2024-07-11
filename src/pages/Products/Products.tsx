@@ -1,13 +1,11 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useGetAllProductsQuery } from '../../redux/redux/api/productsApi';
 import Loading from '../Shared/Loading/Loading';
 import ProductCard from './ProductCard';
-import { TProduct } from '../../Utils/Utils';
 import ProductFilter from './ProductFilter';
 
 const Products = () => {
   const { data: products, isLoading, isError } = useGetAllProductsQuery();
-  const inputRef = useRef<TProduct | null>(null);
   const [search, setSearch] = useState('');
   const [priceRange, setPriceRange] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
@@ -19,16 +17,9 @@ const Products = () => {
   if (isError) {
     return <p>Error fetching products</p>;
   }
-
-  const handleSearch = () => {
-    setSearch(inputRef?.current?.value || '');
-  };
-
   const handlePriceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPriceRange(e.target.value);
   };
-
-  // console.log(products);
 
   const filteredProducts = products?.filter((product) => {
     if (search === '') {
@@ -79,12 +70,12 @@ const Products = () => {
         <h2 className='text-start px-4 py-6 text-blue-900 text-4xl font-semibold mb-5 rounded-xl mx-3'>
           All Keyboards
           <input
-            ref={inputRef}
+            value={search}
             id='searchName'
             className='input input-bordered p-2 w-72 rounded-xl ml-10'
             type='text'
             placeholder='Search'
-            onChange={handleSearch}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </h2>
         <div className='flex py-6 gap-5'>
