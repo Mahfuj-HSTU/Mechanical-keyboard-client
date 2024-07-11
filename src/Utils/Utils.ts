@@ -11,6 +11,7 @@ export type TProduct = {
   description?: string;
   createdAt: string;
   updatedAt: string;
+  quantity?: number;
 };
 
 export type TStarRatingProps = {

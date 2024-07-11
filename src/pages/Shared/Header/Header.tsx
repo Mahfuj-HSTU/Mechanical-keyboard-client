@@ -86,7 +86,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/'>
+                <Link to='/cart'>
                   <FaShoppingCart size={24} />
                 </Link>
               </li>

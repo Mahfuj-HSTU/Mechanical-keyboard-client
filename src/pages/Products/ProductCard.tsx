@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import StarRating from './StarRating';
 import { TProduct } from '../../Utils/Utils';
 
@@ -11,6 +11,8 @@ const ProductCard = ({
 }) => {
   const { image, title, brand, price, availableQuantity, rating, _id } =
     product;
+  const { pathname } = useLocation();
+
   return (
     <div>
       {isLoading ? (
@@ -19,7 +21,7 @@ const ProductCard = ({
         <div className='card w-96 bg-white shadow-lg rounded-lg overflow-hidden'>
           <figure className='relative'>
             <img
-              className='h-48 w-full object-cover'
+              className='h-48 w-full object-cover p-6'
               src={image}
               alt='product image'
             />
@@ -28,6 +30,11 @@ const ProductCard = ({
                 <StarRating rating={rating} />
               </span>
             </div>
+            {pathname.includes('cart') && (
+              <div className='grid place-items-center absolute top-0 right-0 bg-indigo-500 text-white h-9 w-9 rounded-full'>
+                <h2 className='font-semibold'>{product?.quantity}</h2>
+              </div>
+            )}
           </figure>
           <div className='card-body p-4'>
             <h2 className='card-title text-xl font-semibold mb-2'>{title}</h2>

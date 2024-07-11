@@ -2,10 +2,13 @@ import { useParams } from 'react-router-dom';
 import { useGetProductDetailsQuery } from '../../redux/redux/api/productsApi';
 import Loading from '../Shared/Loading/Loading';
 import StarRating from './StarRating';
+import { useAppDispatch } from '../../redux/redux/hooks';
+import { addToCart } from '../../redux/redux/features/cartSlice';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { data: product, isLoading, isError } = useGetProductDetailsQuery(id);
+  const dispatch = useAppDispatch();
 
   if (isLoading) {
     return <Loading />;
@@ -38,7 +41,11 @@ const ProductDetails = () => {
       <p className='text-xl flex items-center gap-3'>
         <strong>Rating:</strong> <StarRating rating={product.rating} />
       </p>
-      <button className='btn btn-info mt-9 text-xl'>Add to Cart</button>
+      <button
+        onClick={() => dispatch(addToCart(product))}
+        className='btn btn-info mt-9 text-xl'>
+        Add to Cart
+      </button>
     </div>
   );
 };
