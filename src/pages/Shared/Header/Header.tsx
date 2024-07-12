@@ -1,44 +1,62 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
-import { CgProfile } from 'react-icons/cg';
 import logo from '../../../assets/images/logo.png';
 
 const Header = () => {
   const menuItems = (
     <>
-      {' '}
       <li className='font-semibold'>
-        <Link to='/'>Home</Link>{' '}
+        <NavLink
+          to='/'
+          className={({ isActive }) => (isActive ? 'text-blue-500' : '')}>
+          Home
+        </NavLink>
       </li>
       <li className='font-semibold'>
-        <Link to='/products'>Products</Link>{' '}
+        <NavLink
+          to='/products'
+          className={({ isActive }) => (isActive ? 'text-blue-500' : '')}>
+          Products
+        </NavLink>
       </li>
       <li className='font-semibold'>
-        <Link to='/about'>About Us</Link>{' '}
+        <NavLink
+          to='/about'
+          className={({ isActive }) => (isActive ? 'text-blue-500' : '')}>
+          About Us
+        </NavLink>
       </li>
       <li className='font-semibold'>
-        <Link to='/contact'>Contact Us</Link>{' '}
+        <NavLink
+          to='/contact'
+          className={({ isActive }) => (isActive ? 'text-blue-500' : '')}>
+          Contact Us
+        </NavLink>
       </li>
       <li className='font-semibold'>
-        <Link to='/product-management/dashboard'>Product Management</Link>{' '}
+        <NavLink
+          to='/product-management/dashboard'
+          className={({ isActive }) => (isActive ? 'text-blue-500' : '')}>
+          Product Management
+        </NavLink>
       </li>
     </>
   );
 
   return (
     <div>
-      <div className='relative overflow-hidden'>
-        <div className='absolute top-0 right-0 p-3 w-full bg-white mb-4 z-10'>
-          <div className='inline-block whitespace-nowrap animate-scrolling'>
-            <p className='text-lg font-semibold'>
+      <div className='relative overflow-hidden h-9 mt-3'>
+        <div className='absolute top-0 right-0 w-full bg-white'>
+          <div className='whitespace-nowrap animate-scrolling'>
+            <p className='text-lg font-semibold text-black'>
               Please check your tracking frequently!
             </p>
           </div>
         </div>
       </div>
-      <div className='navbar h-16 mt-12 bg-gradient-to-r from-slate-300 to-green-300 mx-auto flex justify-between items-center px-4 z-20'>
+      <div className='navbar h-16 mt-2 bg-gradient-to-r from-slate-300 to-green-300 mx-auto flex justify-between items-center px-4 z-20'>
         <div className='navbar-start'>
-          <Link
+          <NavLink
             to='/'
             className='font-bold'>
             <img
@@ -46,7 +64,7 @@ const Header = () => {
               src={logo}
               alt='logo'
             />
-          </Link>
+          </NavLink>
         </div>
         <div className='navbar-center flex-grow flex justify-center'>
           <div className='hidden lg:flex'>
@@ -81,14 +99,13 @@ const Header = () => {
           <div className='hidden lg:block text-xl mr-4'>
             <ul className='flex gap-5'>
               <li>
-                <Link to='/'>
-                  <CgProfile size={24} />
-                </Link>
-              </li>
-              <li>
-                <Link to='/cart'>
+                <NavLink
+                  to='/cart'
+                  className={({ isActive }) =>
+                    isActive ? 'text-blue-500' : ''
+                  }>
                   <FaShoppingCart size={24} />
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

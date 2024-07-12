@@ -4,7 +4,7 @@ import { TProduct } from '../../../Utils/Utils';
 export const productsApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5000/api/v1',
+    baseUrl: 'https://mechanical-keyborad-server.vercel.app/api/v1',
   }),
   tagTypes: ['products'],
   endpoints: (builder) => ({

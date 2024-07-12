@@ -66,19 +66,19 @@ const Products = () => {
 
   return (
     <div className='max-w-screen-xl mx-auto mb-9'>
-      <div className='flex gap-10'>
-        <h2 className='text-start px-4 py-6 text-blue-900 text-4xl font-semibold mb-5 rounded-xl mx-3'>
+      <div className='lg:flex gap-10'>
+        <h2 className='text-start px-4 lg:py-6 text-blue-900 text-4xl font-semibold mb-5 rounded-xl mx-3'>
           All Keyboards
           <input
             value={search}
             id='searchName'
-            className='input input-bordered p-2 w-72 rounded-xl ml-10'
+            className='input input-bordered p-2 w-72 rounded-xl md:ml-10 mt-5 md:mt-4 lg:mt-0'
             type='text'
             placeholder='Search'
             onChange={(e) => setSearch(e.target.value)}
           />
         </h2>
-        <div className='flex py-6 gap-5'>
+        <div className='flex lg:py-6 py-3 gap-5 ml-5'>
           <ProductFilter
             handlePriceChange={handlePriceChange}
             priceRange={priceRange}

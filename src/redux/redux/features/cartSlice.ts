@@ -15,7 +15,10 @@ const cartSlice = createSlice({
       const selectedProduct = state.cart.find(
         (item) => item._id === product._id
       );
-      if (!selectedProduct) {
+
+      if (product.availableQuantity === 0) {
+        toast.error('Cannot add more, exceeds available quantity');
+      } else if (!selectedProduct) {
         state.cart.push({
           ...product,
           quantity: 1,

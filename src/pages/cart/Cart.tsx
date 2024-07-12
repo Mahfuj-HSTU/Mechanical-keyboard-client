@@ -1,24 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useGetAllProductsQuery } from '../../redux/redux/api/productsApi';
 import { useAppSelector } from '../../redux/redux/hooks';
 import { TProduct } from '../../Utils/Utils';
 import ProductCard from '../Products/ProductCard';
 import { Link } from 'react-router-dom';
+import Loading from '../Shared/Loading/Loading';
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.cart.cart);
-  const [totalPrice, setTotalPrice] = useState(0);
-  // console.log(cart);
+  const { data: products, isLoading } = useGetAllProductsQuery();
 
-  useEffect(() => {
-    const calculateTotalPrice = () => {
-      let total = 0;
-      cart.forEach((product) => {
-        total += product.price * product.quantity;
-      });
-      setTotalPrice(total);
-    };
-    calculateTotalPrice();
-  }, [cart]);
+  const filteredProducts = products?.filter((product) => {
+    return cart.some((item) => item._id === product._id);
+  });
+
+  const totalPrice = cart.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+
+  const isOutOfStock = filteredProducts?.some(
+    (product) => product.availableQuantity === 0
+  );
+
+  if (isLoading) {
+    <Loading />;
+  }
 
   return (
     <div className='max-w-screen-xl mx-auto my-9'>
@@ -40,7 +46,10 @@ const Cart = () => {
                 key={product._id}
                 className='flex justify-between items-center mb-2'>
                 <span>
-                  {product.title} x {product.quantity}
+                  {product.title} x {product.quantity}{' '}
+                  <span className='ml-3 text-red-800 font-semibold'>
+                    {isOutOfStock ? '"Out of Stock!"' : null}
+                  </span>
                 </span>
                 <span>${(product.price * product.quantity).toFixed(2)}</span>
               </div>
@@ -54,9 +63,17 @@ const Cart = () => {
             <div className='text-center mt-4'>
               <Link
                 to='/checkout'
-                className='btn btn-primary font-semibold text-lg text-white'>
+                className={`btn btn-primary font-semibold text-lg text-white ${
+                  isOutOfStock ? 'btn-disabled' : ''
+                }`}
+                onClick={(e) => isOutOfStock && e.preventDefault()}>
                 Check Out
               </Link>
+              {isOutOfStock && (
+                <p className='text-red-600 mt-2'>
+                  Cannot proceed to checkout. Some items are out of stock.
+                </p>
+              )}
             </div>
           </div>
         </>
@@ -70,3 +87,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+// ${!available ? 'btn-disabled' : null}

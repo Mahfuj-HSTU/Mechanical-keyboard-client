@@ -40,6 +40,7 @@ export type TCart = {
   quantity: number;
   price: number;
   title: string;
+  availableQuantity: number;
 };
 
 export type TInitialSate = {

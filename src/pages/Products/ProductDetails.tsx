@@ -19,7 +19,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className='m-10 p-6 shadow-xl shadow-slate-300'>
+    <div className='m-10 mt-0 p-6 shadow-xl shadow-slate-300'>
       <h1 className='text-4xl font-bold mb-4'>{product.title}</h1>
       <img
         src={product.image}
