@@ -13,7 +13,7 @@ const Contact = () => {
             <div className='p-6 bg-gray-100 rounded-lg shadow-lg transform transition duration-500 hover:scale-105'>
               <FaPhone className='text-3xl text-green-500 mb-4 mx-auto' />
               <h2 className='text-xl font-bold mb-2'>Phone</h2>
-              <p className='text-gray-700'>+1 234 567 890</p>
+              <p className='text-gray-700'>+8801793949008</p>
             </div>
             <div className='p-6 bg-gray-100 rounded-lg shadow-lg transform transition duration-500 hover:scale-105'>
               <FaEnvelope className='text-3xl text-blue-500 mb-4 mx-auto' />
@@ -23,9 +23,7 @@ const Contact = () => {
             <div className='p-6 bg-gray-100 rounded-lg shadow-lg transform transition duration-500 hover:scale-105'>
               <FaMapMarkerAlt className='text-3xl text-red-500 mb-4 mx-auto' />
               <h2 className='text-xl font-bold mb-2'>Address</h2>
-              <p className='text-gray-700'>
-                123 Keyboard Lane, Typing Town, TX
-              </p>
+              <p className='text-gray-700'>(HSTU), Dinajpur-5200, Bangladesh</p>
             </div>
           </div>
         </div>
