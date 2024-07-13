@@ -48,7 +48,7 @@ const Cart = () => {
                 <span>
                   {product.title} x {product.quantity}{' '}
                   <span className='ml-3 text-red-800 font-semibold'>
-                    {isOutOfStock ? '"Out of Stock!"' : null}
+                    {!product.availableQuantity ? '"Out of Stock!"' : null}
                   </span>
                 </span>
                 <span>${(product.price * product.quantity).toFixed(2)}</span>
@@ -87,5 +87,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-// ${!available ? 'btn-disabled' : null}
